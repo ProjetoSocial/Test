@@ -21,12 +21,12 @@ div.loader{
 div.loader span{
   position: absolute;
   top: 0;
-  left: 50%
+  left: 50%;
   width: 2px;
   height: 50%;
   border-radius: 3px;
   transform: translateX(-50%)
-rotate(calc((360deg / 40)* var(--i)));
+  rotate(calc((360deg / 40)* var(--i)));
   transform-origin: bottom;
   
 }
