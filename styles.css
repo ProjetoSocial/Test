@@ -1,4 +1,47 @@
-.loade
+.loader
 {
-  position: relative
-  
+  position: relative;
+  width: 200px;
+  heigth: 200px;
+  filter: url(#liquid);
+  animation: animate 8s linear infinite;
+}
+
+.loader span
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  heigth: 100%;
+  display: block;
+  transform: rotate(calc(45deg * var(--i)));
+}
+
+.loader span::before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(30% - 90%);
+  width: 45px;
+  height: 45px;
+  background: linear-gardient(45deg, #b7ff00, #e0f403);
+  border-radius: 50%;
+  box-shadow: 0 0 30px #ffdd00
+}
+
+.rotate
+{
+  animation: animate 4s ease-in-out infinite;
+  animation-delay:calc(-0.2s * var(-j)));
+}
+
+@keyframes animate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
