@@ -1,47 +1,33 @@
-.loader
-{
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
   position: relative;
-  width: 50px;
-  heigth: 50px;
-  filter: url(#liquid);
-  animation: animate 8s linear infinite;
 }
-
-.loader span
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  heigth: 100%;
-  display: block;
-  transform: rotate(calc(45deg * var(--i)));
-}
-
-.loader span::before
-{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: calc(30% - 90%);
-  width: 45px;
-  height: 45px;
-  background: linear-gardient(45deg, #b7ff00, #e0f403);
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  box-shadow: 0 0 30px #ffdd00
+  border: 2px solid #FFF;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
 }
 
-.rotate
-{
-  animation: animate 4s ease-in-out infinite;
-  animation-delay:calc(-0.2s * var(-j)));
-}
-
-@keyframes animate{
-  0%{
-    transform: rotate(0deg);
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
   }
-  100%{
-    transform: rotate(360deg);
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }
