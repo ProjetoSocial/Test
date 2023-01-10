@@ -22,11 +22,10 @@ div.loader span{
   position: absolute;
   top: 0;
   left: 50%;
-  width: 2px;
+  width: 3px;
   height: 50%;
   border-radius: 3px;
-  transform: translateX(-50%)
-  rotate(calc((360deg / 40)* var(--i)));
+  transform: translateX(-50%) rotate(calc((360deg / 40)* var(--i)));
   transform-origin: bottom;
   
 }
@@ -41,7 +40,7 @@ div.loader span: before{
   border-radius: 4px ;
   transform: scaleY(1);
   transform-origin: bottom;
-  box-shadow: 0 -5x #43cc54;
+  box-shadow: 0 -5x 5px #43cc54;
   animation: grow 1s ease-in-out infinite;
   animation-delay: calc(0.2s * var(--i));
   
