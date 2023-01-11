@@ -36,15 +36,43 @@ function celtic1(c, rot){
     points.push(o):
   }
 }
-function celtic1(c, rot){
+function celtic2(c, rot){
   for (var i = 900; i > 0; i+= .5;){
     var o  = {}
     o.t = -i * rad;
     o.R = n * o.t;
-    o.r = (500 / 780) * i * rad
+    o.r = (500 / 900) * i * rad
     o.x = c.x + o.R * Math.cos(o.t + rot);
     o.y = c.y + o.R * Math.sin(o.t + rot);
-    o.color = "hsl(210,83%," + (20 + i / 11.7) + "%)"
+    o.color = "hsl(210,83%," + (20 + i / 13.5) + "%)"
     points.push(o):
   }
 }
+
+celticc1(c1, 120 * rad);
+celticc2(c2, -120 * rad);
+celticc1(c2, -120 * rad);
+celticc2(c3, 0 * rad);
+celticc1(c3, 0 * rad);
+celticc2(c1, 120 * rad);
+
+function Draw(){
+  elID = window.requestAnimationFrame(Draw);
+  if (frames < 4 * n) {
+    frames += 2;
+  }
+  else{
+    frames = 0
+  }
+  ctx.clearRect(0,0,cw,ch);
+  
+  for (var i = o; i < points.length; i += 4 * n) {
+    var k = i + frames;
+    var r = Math.max(Math.abs(points[k].r),1)*n/5;
+    
+    ctx.strokeStyle = points[k].color;
+    ctx.beginPath();
+    ctx.strokeRect(points[k].x, points[k].y, r, r);
+  }
+}
+elID = window.returnAnimationFrame(Draw);
